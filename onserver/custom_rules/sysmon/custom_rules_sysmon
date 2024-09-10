@@ -1,1 +1,101 @@
+﻿<!--
+  -  Windows Event Channel ruleset for the Sysmon channel 
+  -  ID range: 61600 - 62012
+-->
+
+<group name="sysmon,">
+  <rule id="101101" level="4">
+    <if_sid>61600</if_sid>
+    <field name="win.system.severityValue">^INFORMATION$</field>
+    <description>Windows Sysmon informational event</description>
+    <options>no_full_log</options>
+  </rule>
+
+  <rule id="101102" level="4">
+    <if_sid>61601</if_sid>
+    <field name="win.system.severityValue">^WARNING$</field>
+    <description>Windows Sysmon warning event</description>
+    <options>no_full_log</options>
+    <group>gpg13_4.12,</group>
+  </rule>
+
+  <rule id="101103" level="4">
+    <if_sid>61602</if_sid>
+    <field name="win.system.severityValue">^ERROR$</field>
+    <description>Windows Sysmon error event</description>
+    <options>no_full_log</options>
+    <group>system_error,gpg13_4.3,gdpr_IV_35.7.d,</group>
+  </rule>
+
+  <rule id="101104" level="5">
+    <if_sid>61603</if_sid>
+    <description>Sysmon - Event 1: Process creation $(win.eventdata.description)</description>
+    <options>no_full_log</options>
+    <group>sysmon_event1,</group>
+  </rule>
+
+  <rule id="101105" level="5">
+    <if_sid>61604</if_sid>
+    <description>Sysmon - Event 2: $(win.eventdata.image) changed file $(win.eventdata.targetFilename) creation time </description>
+    <options>no_full_log</options>
+    <group>sysmon_event2,</group>
+  </rule>
+
+  <rule id="101106" level="5">
+    <if_sid>61605</if_sid>
+    <description>Sysmon - Event 3: Network connection to $(win.eventdata.destinationIp):$(win.eventdata.destinationPort) by $(win.eventdata.image)</description>
+    <options>no_full_log</options>
+    <group>sysmon_event3,</group>
+  </rule>
+
+  <rule id="101107" level="5">
+    <if_sid>61606</if_sid>
+    <description>Sysmon - Event 4: Sysmon service state changed to "$(win.eventdata.state)"</description>
+    <options>no_full_log</options>
+    <group>sysmon_event4,</group>
+  </rule>
+
+  <rule id="101108" level="5">
+    <if_sid>61607</if_sid>
+    <description>Sysmon - Event 5: Process terminated $(win.eventdata.image)</description>
+    <options>no_full_log</options>
+    <group>sysmon_event5,</group>
+  </rule>
+
+  <rule id="101109" level="5">
+    <if_sid>61608</if_sid>
+    <description>Sysmon - Event 6: Driver loaded $(win.eventdata.imageLoaded)</description>
+    <options>no_full_log</options>
+    <group>sysmon_event6,</group>
+  </rule>
+
+  <rule id="101110" level="5">
+    <if_sid>61609</if_sid>
+    <description>Sysmon - Event 7: Image $(win.eventdata.imageLoaded) loaded by $(win.eventdata.image)</description>
+    <options>no_full_log</options>
+    <group>sysmon_event7,</group>
+  </rule>
+
+  <rule id="101111" level="5">
+    <if_sid>61610</if_sid>
+    <description>Sysmon - Event 8: CreateRemoteThread by $(win.eventdata.sourceImage) on $(win.eventdata.targetImage), possible process injection</description>
+    <options>no_full_log</options>
+    <group>sysmon_event8,</group>
+  </rule>
+
+  <rule id="101112" level="5">
+    <if_sid>61611</if_sid>
+    <description>Sysmon - Event 9: RawAccessRead by $(win.eventdata.image)</description>
+    <options>no_full_log</options>
+    <group>sysmon_event9,</group>
+  </rule>
+
+  <rule id="101113" level="5">
+    <if_sid>61612</if_sid>
+    <description>Sysmon - Event 10: $(win.eventdata.targetImage) process accessed by $(win.eventdata.sourceImage)</description>
+    <options>no_full_log</options>
+    <group>sysmon_event_10,</group>
+  </rule>
+
+</group>
 
