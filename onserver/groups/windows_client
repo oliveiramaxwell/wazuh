@@ -1,19 +1,24 @@
 <agent_config>
+<!-- Adicao dos logs gerados pelo sysmon -->
+	<localfile>
+		<location>Microsoft-Windows-Sysmon/Operational</location>
+		<log_format>eventchannel</log_format>
+	</localfile>
+	
+	<!-- Configuracao do Syscheck -->
 	<syscheck>
- 
-	<!-- Remoção de logs exarcebados -->
+		<!-- Remoção de logs exarcebados -->
 		<registry_ignore>HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\*</registry_ignore>
-		
-  <!-- Monitoramento da pasta Downloads -->
-		  <directories check_all="no" realtime="yes" recursion_level="0" restrict=".exe$|.hta$|.sfx$|.ps1$|.bat$|.cmd$|.java$">C:\Users\*\Downloads</directories>
+		<!-- Monitoramento da pasta Downloads -->
+		<directories check_all="no" realtime="yes" recursion_level="0" restrict=".exe$|.hta$|.sfx$|.ps1$|.bat$|.cmd$|.java$">C:\Users\*\Downloads</directories>
     
-    <!-- Monitoramento da pasta Desktop -->
-      <directories check_all="no" realtime="yes" recursion_level="0" restrict=".exe$|.hta$|.sfx$|.ps1$|.bat$|.cmd$|.java$">C:\Users\*\Downloads</directories>
-			<directories recursion_level="0" realtime="yes" restrict="MsoHtmed.exe$|MSPub.exe$|ProtocolHandler.exe$">%PROGRAMDATA%\Microsoft Office\root</directories>
+    		<!-- Monitoramento da pasta Desktop -->
+      		<directories check_all="no" realtime="yes" recursion_level="0" restrict=".exe$|.hta$|.sfx$|.ps1$|.bat$|.cmd$|.java$">C:\Users\*\Downloads</directories>
+		<directories recursion_level="0" realtime="yes" restrict="MsoHtmed.exe$|MSPub.exe$|ProtocolHandler.exe$">%PROGRAMDATA%\Microsoft Office\root</directories>
     
-    <!-- LOLBINS Win64 e Win32 		
-			<directories recursion_level="0" restrict="mshta.exe$|regedit32.exe$|hh.exe$|pcalua.exe$|xwizard.exe$|PrintBrm.exe$|wsl.exe$|Pester.bat$|CL_invocation.ps1$|Pubprn.vbs$|AppInstaller.exe$|ATBroker.exe$|ConfigSecurityPolicy.exe$|conhost.exe$|cmdkey.exe$|CustomShellHost.exe$|desktopimgdownldr.exe$|diantz.exe$|Eventvwr.exe$|findstr.exe$|forfiles.exe$|IMEWDBLD.exe$|makecab.exe$|mavinject.exe$|MpCmdRun.exe$|msiexec.exe$|OfflineScannerShell.exe$|pcwrun.exe$|Presentation.exe$|psr.exe$|Register-cimprovider.exe$|regasm.exe$|regsvcs.exe$|rpcping.exe$|replace.exe$|runexehelper.exe$|Runonce.exe$|Runscripthelper.exe$|SettingSyncHost.exe$|Scriptrunner.exe$|tracer.exe$|wab.exe$|wmic.exe$|wlrmdr.exe$|WorkFolders.exe$|wsreset.exe$|msedge_proxy.exe$|msedgewebview2.exe$|curl.exe$">%WINDIR%\SysWOW64</directories>
-			<directories recursion_level="0" restrict="mshta.exe$|regedit32.exe$|hh.exe$|pcalua.exe$|xwizard.exe$|PrintBrm.exe$|wsl.exe$|Pester.bat$|CL_invocation.ps1$|Pubprn.vbs$|AppInstaller.exe$|ATBroker.exe$|ConfigSecurityPolicy.exe$|conhost.exe$|cmdkey.exe$|CustomShellHost.exe$|desktopimgdownldr.exe$|diantz.exe$|Eventvwr.exe$|findstr.exe$|forfiles.exe$|IMEWDBLD.exe$|makecab.exe$|mavinject.exe$|MpCmdRun.exe$|msiexec.exe$|OfflineScannerShell.exe$|pcwrun.exe$|Presentation.exe$|psr.exe$|Register-cimprovider.exe$|regasm.exe$|regsvcs.exe$|rpcping.exe$|replace.exe$|runexehelper.exe$|Runonce.exe$|Runscripthelper.exe$|SettingSyncHost.exe$|Scriptrunner.exe$|tracer.exe$|wab.exe$|wmic.exe$|wlrmdr.exe$|WorkFolders.exe$|wsreset.exe$|msedge_proxy.exe$|msedgewebview2.exe$|curl.exe$">%WINDIR%\System32</directories>
+    		<!-- LOLBINS Win64 e Win32 		
+		<directories recursion_level="0" restrict="mshta.exe$|regedit32.exe$|hh.exe$|pcalua.exe$|xwizard.exe$|PrintBrm.exe$|wsl.exe$|Pester.bat$|CL_invocation.ps1$|Pubprn.vbs$|AppInstaller.exe$|ATBroker.exe$|ConfigSecurityPolicy.exe$|conhost.exe$|cmdkey.exe$|CustomShellHost.exe$|desktopimgdownldr.exe$|diantz.exe$|Eventvwr.exe$|findstr.exe$|forfiles.exe$|IMEWDBLD.exe$|makecab.exe$|mavinject.exe$|MpCmdRun.exe$|msiexec.exe$|OfflineScannerShell.exe$|pcwrun.exe$|Presentation.exe$|psr.exe$|Register-cimprovider.exe$|regasm.exe$|regsvcs.exe$|rpcping.exe$|replace.exe$|runexehelper.exe$|Runonce.exe$|Runscripthelper.exe$|SettingSyncHost.exe$|Scriptrunner.exe$|tracer.exe$|wab.exe$|wmic.exe$|wlrmdr.exe$|WorkFolders.exe$|wsreset.exe$|msedge_proxy.exe$|msedgewebview2.exe$|curl.exe$">%WINDIR%\SysWOW64</directories>
+		<directories recursion_level="0" restrict="mshta.exe$|regedit32.exe$|hh.exe$|pcalua.exe$|xwizard.exe$|PrintBrm.exe$|wsl.exe$|Pester.bat$|CL_invocation.ps1$|Pubprn.vbs$|AppInstaller.exe$|ATBroker.exe$|ConfigSecurityPolicy.exe$|conhost.exe$|cmdkey.exe$|CustomShellHost.exe$|desktopimgdownldr.exe$|diantz.exe$|Eventvwr.exe$|findstr.exe$|forfiles.exe$|IMEWDBLD.exe$|makecab.exe$|mavinject.exe$|MpCmdRun.exe$|msiexec.exe$|OfflineScannerShell.exe$|pcwrun.exe$|Presentation.exe$|psr.exe$|Register-cimprovider.exe$|regasm.exe$|regsvcs.exe$|rpcping.exe$|replace.exe$|runexehelper.exe$|Runonce.exe$|Runscripthelper.exe$|SettingSyncHost.exe$|Scriptrunner.exe$|tracer.exe$|wab.exe$|wmic.exe$|wlrmdr.exe$|WorkFolders.exe$|wsreset.exe$|msedge_proxy.exe$|msedgewebview2.exe$|curl.exe$">%WINDIR%\System32</directories>
 	  -->	
-  </syscheck>
-	</agent_config>
+  	</syscheck>
+</agent_config>
