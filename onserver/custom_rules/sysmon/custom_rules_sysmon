@@ -1,10 +1,10 @@
 ﻿<!--
   -  Windows Event Channel ruleset for the Sysmon channel 
-  -  ID range: 61600 - 62012
+  -  ID range: 101101 - 101117
   - Dica 1: Considere remover as variáveis dos campos "<descriptions>" para poluir menos os logs e ficar mais fácil de categoriza-los
 -->
 
-<group name="sysmon,">
+<group name="sysmon,windows,">
   <rule id="101101" level="4">
     <if_sid>61600</if_sid>
     <field name="win.system.severityValue">^INFORMATION$</field>
