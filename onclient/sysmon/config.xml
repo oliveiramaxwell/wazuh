@@ -1,4 +1,4 @@
-<--! Fontes e Inpirações 
+<!-- Fontes e Inpirações 
  
   Olaf Hartong - https://raw.githubusercontent.com/olafhartong/sysmon-modular/master/sysmonconfig.xml
   
@@ -472,7 +472,7 @@
     <RuleGroup groupRelation="or">
       <ProcessCreate onmatch="exclude">
         <Rule>
-          Image condition="is">C:\Windows\System32\calc.exe"</Image>
+          <Image condition="is">C:\Windows\System32\calc.exe</Image>
         </Rule>
         <Rule groupRelation="and">
           <Image condition="end with">AcroRd32.exe</Image>
