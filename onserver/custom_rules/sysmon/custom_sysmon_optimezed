@@ -1,7 +1,7 @@
 <!--
   -  Windows Event Channel ruleset for the Sysmon channel 
   -  ID range: 101101 - 101117
-  - Dica 1: Considere remover as variáveis dos campos "<descriptions>" para poluir menos os logs e ficar mais fácil de categoriza-los
+  - Otimizado: Sem as variaveis
 -->
 
 <group name="sysmon,windows,">
