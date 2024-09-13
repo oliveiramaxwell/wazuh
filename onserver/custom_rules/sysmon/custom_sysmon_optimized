@@ -69,14 +69,14 @@
     <options>no_full_log</options>
     <group>sysmon_event6,</group>
   </rule>
-
+<!--
   <rule id="101110" level="5">
     <if_sid>61609</if_sid>
     <description>Sysmon - Event 7: Image Loaded.</description>
     <options>no_full_log</options>
     <group>sysmon_event7,</group>
   </rule>
-
+-->
   <rule id="101111" level="5">
     <if_sid>61610</if_sid>
     <description>Sysmon - Event 8: CreateRemoteThread, possible process injection.</description>
@@ -98,32 +98,40 @@
     <group>sysmon_event_10,</group>
   </rule>
 ﻿  
-    <rule id="101114" level="4">
+  <rule id="101114" level="0">
     <if_sid>61613</if_sid>
+    <field name="win.system.eventID">^11$</field>
+    <description>Sysmon - Event 11: FileCreate by $(win.eventdata.image)</description>
+    <options>no_full_log</options>
+    <group>sysmon_event_11,</group>
+  </rule>
+
+    <rule id="101115" level="4">
+    <if_sid>61614</if_sid>
     <field name="win.system.eventID">^12$</field>
     <description>Sysmon - Event 12: RegistryEvent $(win.eventdata.eventType) on $(win.eventdata.targetObject) by $(win.eventdata.image)</description>
     <options>no_full_log</options>
     <group>sysmon_event_12,</group>
   </rule>
 
-  <rule id="101115" level="4">
-    <if_sid>61613</if_sid>
+  <rule id="101116" level="4">
+    <if_sid>61615</if_sid>
     <field name="win.system.eventID">^13$</field>
     <description>Sysmon - Event 13: RegistryEvent $(win.eventdata.eventType) on $(win.eventdata.targetObject) by $(win.eventdata.image)</description>
     <options>no_full_log</options>
     <group>sysmon_event_13,</group>
   </rule>
 
-  <rule id="101116" level="4">
-    <if_sid>61613</if_sid>
+  <rule id="101117" level="4">
+    <if_sid>61616</if_sid>
     <field name="win.system.eventID">^14$</field>
     <description>Sysmon - Event 14: RegistryEvent (Key and Value Rename) by $(win.eventdata.image)</description>
     <options>no_full_log</options>
     <group>sysmon_event_14,</group>
   </rule>
   
-    <rule id="101117" level="5">
-    <if_sid>61614</if_sid>
+    <rule id="101118" level="5">
+    <if_sid>61617</if_sid>
     <field name="win.system.eventID">^15$</field>
     <description>Sysmon - Event 15: FileCreateStreamHash.</description>
     <options>no_full_log</options>
